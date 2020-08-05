@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">図書一覧</h1>
+      <p class="lead">This is a list of our books.</p>
+    </div>
+  </div>
+
+{% endblock header%}
+
+
+{% block content %}
+    <div class='container' >
+        {% for item in object_list%}
+
+        <ul>
+            {{ item.title }}
+            <a href="{% url 'detail' item.pk %}" class="btn btn-success" role="button" aria-pressed="true">詳細</a>
+        </ul>
+        {% endfor %}
+    </div>
+
+{% endblock content %}
