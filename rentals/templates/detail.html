@@ -18,8 +18,22 @@
             <p>著者：{{object.author}}</p>
             <p>ISBN：{{object.isbn}}</p>
             <p>詳細：{{object.memo}}</p>
-            <a href="{% url 'status' object.pk %}" class="btn btsuccess" role="button" aria-pressed="true">貸し出し状況：{{object.status}}</a>
-        </div>
+            {% if object.status == 0 %}
+              <a>貸し出し状況：貸し出し可能</a>
+            {% else %}
+              <a>貸し出し状況：貸出中</a>
+            {% endif %}
+
+            <br>
+            <br>
+            {% if object.status == 0 %}
+            <a href="{% url 'status' object.pk %}" class="btn btn-success" role="button" aria-pressed="true">貸し出す</a>
+            {% endif %}
+
+            <!-- <a href="{% url 'status' object.pk %}" class="btn btsuccess" role="button" aria-pressed="true">貸し出し状況：{{object.status}}</a> -->
+        
+        
+            </div>
     </div>
 {% endblock content %}
 
