@@ -18,6 +18,7 @@
             <p>著者：{{object.author}}</p>
             <p>ISBN：{{object.isbn}}</p>
             <p>詳細：{{object.memo}}</p>
+            <a href="{% url 'status' object.pk %}" class="btn btsuccess" role="button" aria-pressed="true">貸し出し状況：{{object.status}}</a>
         </div>
     </div>
 {% endblock content %}

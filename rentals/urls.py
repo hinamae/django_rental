@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import Equ_List, Equ_Detail, loginfunc, signupfunc
+from .views import Equ_List, Equ_Detail, loginfunc, signupfunc, change_book_status_func
 
 urlpatterns = [
     #todoリストを表示させる画面用のurl
@@ -8,4 +8,5 @@ urlpatterns = [
     path('detail/<int:pk>', Equ_Detail.as_view(), name='detail'),
     path('login/', loginfunc, name='login'),
     path('signup/', signupfunc, name='signup'),
+    path('status/<int:pk>' , change_book_status_func, name='status')
 ]
