@@ -6,5 +6,6 @@ class Equ_Model(models.Model):
     author = models.CharField(max_length=100)
     memo = models.TextField()
     isbn = models.CharField(max_length=13)
+    status = models.IntegerField()
     def __str__(self):
         return self.title

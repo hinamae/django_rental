@@ -5,13 +5,25 @@ adminのはmaeyamaといつものパスワード
 ## 環境
 
 - Django 3.0.8.
-- Python 3.8.3 
+- Python 3.8 !!!!!!
 
 ```
 conda activate py36
 ```
 
+```
+python3.8 manage.py runserver
+```
+
+
 127.0.0.1:8000/loginでアクセス
+
+
+```
+python3.8 makemigrations
+
+python3.8 manage.py migrate
+```
 
 
 ## memo 
@@ -50,6 +62,8 @@ conda activate py36
     - memo
     - isbn
     - status
+        - 0:貸し出し可能
+        - 1:貸出中
 
 - 
 
