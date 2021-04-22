@@ -2,6 +2,18 @@
 
 adminのはmaeyamaといつものパスワード
 
+## 環境
+
+- Django 3.0.8.
+- Python 3.8.3 
+
+```
+conda activate py36
+```
+
+127.0.0.1:8000/loginでアクセス
+
+
 ## memo 
 
 ### 実装するもの
@@ -30,12 +42,22 @@ adminのはmaeyamaといつものパスワード
 
 ## 設計
 
-### データ(model)
+### DB用データ(model)
 
-貸し出し図書のインスタンス
+- 貸し出し図書のインスタンス(equ_model)
+    - title
+    - author
+    - memo
+    - isbn
+    - status
 
-- 図書(ISBN?)
-- 借りた人
-- 期限
-- 貸し出し日時
+- 
 
+
+##
+
+
+
+## エラー
+- エラー：Using the URLconf defined in rentalproject.urls, Django tried these URL patterns, in this order:
+- 解決：http://127.0.0.1:8000/{表示のあるパス}でアクセスする
