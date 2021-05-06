@@ -8,7 +8,7 @@
           <li class="nav-item">
               <a class="nav-link" href="{% url 'list' %}">Home(図書一覧)</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
               <a class="nav-link" href="{% url 'how_to_lend' %}">貸し出し方法説明</a>
           </li>
       </ul>
@@ -19,15 +19,14 @@
           <li class="nav-item">
             <a class="nav-link" href="#">貸し出しカゴ</a>
           </li>
-
       </ul>
   </div>
 </nav>
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-      <h1 class="display-4">詳細</h1>
-      <p class="lead">本の詳細ページです。</p>
+      <h1 class="display-4">貸し出し方法</h1>
+      <p class="lead">貸し出し方法を説明します。</p>
     </div>
   </div>
 
@@ -37,25 +36,6 @@
     <!-- conatiner=bootstrapのクラスの名前で、画面の幅に合わせて余裕を持たせた幅に勝手し設定してくれる -->
     <div class='container'>
         <div class="alert alert-success" role="alert">
-            <p>タイトル：{{object.title}}</p>
-            <p>著者：{{object.author}}</p>
-            <p>ISBN：{{object.isbn}}</p>
-            <p>詳細：{{object.memo}}</p>
-            {% if object.status == 0 %}
-              <a>貸し出し状況：貸し出し可能</a>
-            {% else %}
-              <a>貸し出し状況：貸出中</a>
-            {% endif %}
-
-            <br>
-            <br>
-            {% if object.status == 0 %}
-            <a href="{% url 'status' object.pk %}" class="btn btn-success" role="button" aria-pressed="true">貸し出す</a>
-            {% endif %}
-
-            <!-- <a href="{% url 'status' object.pk %}" class="btn btsuccess" role="button" aria-pressed="true">貸し出し状況：{{object.status}}</a> -->
-        
-        
             </div>
     </div>
 {% endblock content %}

@@ -1,5 +1,4 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, get_object_or_404
 from .models import Equ_Model
 
 
@@ -24,6 +23,19 @@ class Equ_List(ListView):
 class Equ_Detail(DetailView):
     template_name='detail.html'
     model = Equ_Model
+
+class Mypage(DetailView):
+    template_name='mypage.html'
+    queryset = User.objects.all()
+    def get_object(self):
+        UserName = self.kwargs.get("username")
+        return get_object_or_404(User, username=UserName)
+
+
+class Equ_How_to_lend(ListView):
+    template_name='how_to_lend.html'
+    model = Equ_Model
+
 
 def loginfunc(request):
     if request.method== 'POST':

@@ -1,6 +1,6 @@
 # README
 
-adminのはmaeyamaといつものパスワード
+adminのはmaey***といつものパスワード
 
 ## ？？
 - detail画面でリロードすると、貸し出しステータス変更funcが呼び出されてしまっている
@@ -23,7 +23,7 @@ python3.8 manage.py runserver
 
 
 ```
-python3.8 makemigrations
+python3.8 manage.py makemigrations
 
 python3.8 manage.py migrate
 ```
@@ -38,13 +38,19 @@ python3.8 manage.py migrate
 - 取り置き期限を確認する(Read)
 - 貸し出し図書の返却を登録する(Update)
 - 取り置き図書を貸し出しに出す(Update)
+- 買い物かごに図書を貯める(Update)
+- 買い物かごから図書を貸し出す(Update)
+
+
 
 
 ### 実装したこと
 - adminで図書を登録・編集・削除する(Create・Update・Delete)
 - 図書一覧を表示する(Read)
 - 図書の詳細を表示する(Read)
-
+- 図書の借り方を表示する(Read)
+- 貸し出しボタンを設置(Update)
+- マイページの作成(Read)
 - 一般ユーザを作成する(Create)
 - adminユーザで一般ユーザの更新をする(Update・Delete)
 - 一般ユーザ・adminユーザでログインする
@@ -57,9 +63,9 @@ python3.8 manage.py migrate
 
 ## 設計
 
-### DB用データ(model)
+### テーブル(model)
 
-- 貸し出し図書のインスタンス(equ_model)
+- 本のインスタンス(equ_model)
     - title
     - author
     - memo
@@ -68,13 +74,36 @@ python3.8 manage.py migrate
         - 0:貸し出し可能
         - 1:貸出中
 
-- 
 
 
-##
+- ユーザ(デフォルト)
+
+
+- 貸し出しインスタンス(Lending_Book)
+    - user
+        - ユーザテーブルを参照する外部キー(参照しているユーザレコードが削除された場合にLending_Bookテーブルのレコードを残す)
+    - equ_model 
+        - 本テーブルを参照する外部キー(参照しているユーザレコードが削除された場合にLending_Bookテーブルのレコードを削除する)
+    - rental_date
+        - 貸し出した日
+    - due_date
+        - 返却期限
+    - return_date
+        - 返した日
+
+
+
 
 
 
 ## エラー
 - エラー：Using the URLconf defined in rentalproject.urls, Django tried these URL patterns, in this order:
 - 解決：http://127.0.0.1:8000/{表示のあるパス}でアクセスする
+
+
+## 参考
+
+- headerのbootstrap
+https://stackoverflow.com/questions/41513463/bootstrap-4-align-navbar-items-to-the-right
+
+のanswerのやつ！
