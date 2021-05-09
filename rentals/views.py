@@ -76,9 +76,9 @@ def change_book_status_func(request, pk):
     post = Equ_Model.objects.get(pk=pk)
     if post.status == 0:
         post.status = post.status + 1
+        post.save()
+        return render(request, 'thanks_to_lend.html', {"object":post})
     else:
-        post.status = post.status - 1
-    post.save()
-    return render(request, 'detail.html', {"object":post})
-            
+        return render(request, 'sorry_already_lent.html', {"object":post})
+
 
